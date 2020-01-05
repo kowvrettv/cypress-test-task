@@ -23,7 +23,7 @@ describe('Changing user profile information', () => {
         cy.get('button[type=submit]').click()
     })
 
-    it('Will change user info', () => {
+    it('Changing user info', () => {
         cy.get('ul[class="Header-controls"] li[class="item-session"]')
             .click()
 

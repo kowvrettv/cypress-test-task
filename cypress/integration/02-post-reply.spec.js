@@ -23,7 +23,7 @@ describe('Posting a reply in discussion', () => {
         cy.get('button[type=submit]').click()
     })
 
-    it('Find a discussion and post a reply', () => {
+    it('Finding a discussion and post a reply', () => {
         let userTitle;
 
         cy.fixture('titles').then(title => {
