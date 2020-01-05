@@ -30,7 +30,7 @@ describe('Posting a reply in discussion', () => {
             userTitle = title[0].title;
 
             cy.get('h3')
-                .contains('Khoma Test Post')
+                .contains(userTitle)
                 .then(($header) => {
                     $header.click()
                 })
