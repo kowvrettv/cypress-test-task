@@ -20,7 +20,8 @@ describe('Changing user profile information', () => {
                 .should('have.value', password)
         })
 
-        cy.get('button[type=submit]').click()
+        cy.get('button[type=submit]')
+            .click()
     })
 
     it('Changing user info', () => {
@@ -34,7 +35,8 @@ describe('Changing user profile information', () => {
             .wait(2000) // because the text was not completely added
             .type('Alexander Khoma{enter}')
 
-        cy.get('li[class="item-bio"]').contains('Alexander Khoma')
+        cy.get('li[class="item-bio"]')
+            .contains('Alexander Khoma')
     })
 
     it('Verifying if user info is displayed', () => {
@@ -59,7 +61,8 @@ describe('Changing user profile information', () => {
                 .should('have.value', password)
         })
 
-        cy.get('button[type=submit]').click()
+        cy.get('button[type=submit]')
+            .click()
 
         cy.get('ul[class="Header-controls"] li[class="item-session"]')
             .click()
@@ -67,6 +70,7 @@ describe('Changing user profile information', () => {
         cy.get('li[class="item-profile"]')
             .click()
 
-        cy.get('li[class="item-bio"]').contains('Alexander Khoma')
+        cy.get('li[class="item-bio"]')
+            .contains('Alexander Khoma')
     })
 })

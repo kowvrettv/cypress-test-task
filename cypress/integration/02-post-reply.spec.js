@@ -20,28 +20,35 @@ describe('Posting a reply in discussion', () => {
                 .should('have.value', password)
         })
 
-        cy.get('button[type=submit]').click()
+        cy.get('button[type=submit]')
+            .click()
     })
 
     it('Finding a discussion and post a reply', () => {
         let userTitle;
 
-        cy.fixture('titles').then(title => {
-            userTitle = title[0].title;
+        cy.fixture('titles')
+            .then(title => {
+                userTitle = title[0].title;
 
-            cy.get('h3')
-                .contains(userTitle)
-                .then(($header) => {
-                    $header.click()
-                })
-        })
+                cy.get('h3')
+                    .contains(userTitle)
+                    .then(($header) => {
+                        $header.click()
+                    })
+            })
 
-        cy.get('button[class=" SplitDropdown-button Button Button--primary hasIcon"]').click()
+        cy.get('button[class=" SplitDropdown-button Button Button--primary hasIcon"]')
+            .click()
 
         let randomNumber = Math.floor(Math.random() * 999);
-        cy.get('textarea[class="FormControl Composer-flexible"]').type(`Note #${randomNumber}`)
 
-        cy.get('span').contains('Post Reply').click()
+        cy.get('textarea[class="FormControl Composer-flexible"]')
+            .type(`Note #${randomNumber}`)
+
+        cy.get('span')
+            .contains('Post Reply')
+            .click()
 
         cy.reload()
 
