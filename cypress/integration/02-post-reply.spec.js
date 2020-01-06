@@ -7,18 +7,19 @@ describe('Posting a reply in discussion', () => {
         let username;
         let password;
 
-        cy.fixture('users').then(user => {
-            username = user[0].login;
-            password = user[0].password;
+        cy.fixture('users')
+            .then(user => {
+                username = user[0].login;
+                password = user[0].password;
 
-            cy.get('input[name="identification"]')
-                .type(username, { force: true })
-                .should('have.value', username)
+                cy.get('input[name="identification"]')
+                    .type(username, { force: true })
+                    .should('have.value', username)
 
-            cy.get('input[name="password"]')
-                .type(password)
-                .should('have.value', password)
-        })
+                cy.get('input[name="password"]')
+                    .type(password)
+                    .should('have.value', password)
+            })
 
         cy.get('button[type=submit]')
             .click()

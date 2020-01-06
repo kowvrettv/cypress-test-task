@@ -7,18 +7,19 @@ describe('Changing user profile information', () => {
         let username;
         let password;
 
-        cy.fixture('users').then(user => {
-            username = user[0].login;
-            password = user[0].password;
+        cy.fixture('users')
+            .then(user => {
+                username = user[0].login;
+                password = user[0].password;
 
-            cy.get('input[name="identification"]')
-                .type(username, { force: true })
-                .should('have.value', username)
+                cy.get('input[name="identification"]')
+                    .type(username, { force: true })
+                    .should('have.value', username)
 
-            cy.get('input[name="password"]')
-                .type(password)
-                .should('have.value', password)
-        })
+                cy.get('input[name="password"]')
+                    .type(password)
+                    .should('have.value', password)
+            })
 
         cy.get('button[type=submit]')
             .click()
@@ -32,7 +33,7 @@ describe('Changing user profile information', () => {
             .click()
 
         cy.get('div[class="UserBio-content"]')
-            .wait(2000) // because the text was not completely added
+            .wait(2000)
             .type('Alexander Khoma{enter}')
 
         cy.get('li[class="item-bio"]')
@@ -47,19 +48,19 @@ describe('Changing user profile information', () => {
         let username;
         let password;
 
-        cy.fixture('users').then(user => {
-            username = user[0].login;
-            password = user[0].password;
-            console.log(username, password)
+        cy.fixture('users')
+            .then(user => {
+                username = user[0].login;
+                password = user[0].password;
 
-            cy.get('input[name="identification"]')
-                .type(username, { force: true })
-                .should('have.value', username)
+                cy.get('input[name="identification"]')
+                    .type(username, { force: true })
+                    .should('have.value', username)
 
-            cy.get('input[name="password"]')
-                .type(password)
-                .should('have.value', password)
-        })
+                cy.get('input[name="password"]')
+                    .type(password)
+                    .should('have.value', password)
+            })
 
         cy.get('button[type=submit]')
             .click()
